@@ -1,7 +1,7 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
-import { hash, compare } from 'bcryptjs'
+import { compare, hash } from 'bcrypt'
 import { JwtService } from '@nestjs/jwt'
 
 import { AuthDto } from './dto/auth.dto'
@@ -18,7 +18,7 @@ export class AuthService {
 
   async createUser(dto: AuthDto): Promise<UserModel> {
     const salt = 10
-    const passwordHash = await hash(dto.login, salt)
+    const passwordHash = await hash(dto.password, salt)
 
     const newUser = new this.userModel({
       email: dto.login,

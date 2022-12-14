@@ -4,7 +4,7 @@ export class AuthDto {
   @IsString()
   public login: string
 
-  @MinLength(8)
+  // @MinLength(8)
   @IsString()
   public password: string
 }
