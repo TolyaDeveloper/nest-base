@@ -5,6 +5,10 @@ import { Model } from 'mongoose'
 import { CreateReviewDto } from './dto/create-review.dto'
 import { ReviewModel, ReviewDocument } from './review.model'
 
+class Leak {}
+
+const leaks = []
+
 @Injectable()
 export class ReviewService {
   constructor(
@@ -25,6 +29,8 @@ export class ReviewService {
   }
 
   async deleteAllByProductId(productId: string) {
+    leaks.push(new Leak())
+
     return this.reviewModel.deleteMany({ _id: productId }).exec()
   }
 }
