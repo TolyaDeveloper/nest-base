@@ -41,7 +41,10 @@ export class TopPageModel {
   @Prop()
   public secondCategory: string
 
-  @Prop()
+  @Prop({ unique: true })
+  public alias: string
+
+  @Prop({ index: true })
   public title: string
 
   @Prop()

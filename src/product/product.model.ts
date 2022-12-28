@@ -26,13 +26,10 @@ export class ProductModel {
   public price: number
 
   @Prop()
-  public oldPrice: number
+  public oldPrice?: number
 
   @Prop()
   public credit: number
-
-  @Prop()
-  public calculatedRating: number
 
   @Prop()
   public description: string
