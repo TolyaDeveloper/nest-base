@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
-import { HydratedDocument } from 'mongoose'
+import { HydratedDocument, SchemaTimestampsConfig } from 'mongoose'
 
 export enum TopLevelCategory {
   Courses,
@@ -66,6 +66,7 @@ export class TopPageModel {
   public tags: string[]
 }
 
-export type TopPageDocument = HydratedDocument<TopPageModel>
+export type TopPageDocument = HydratedDocument<TopPageModel> &
+  SchemaTimestampsConfig
 
 export const TopPageSchema = SchemaFactory.createForClass(TopPageModel)
